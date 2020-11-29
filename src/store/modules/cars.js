@@ -1,6 +1,7 @@
 import carList from '../../assets/car-list'
 const  SET_SEARCH = "SET_SEARCH"
 const SET_SORT_BY = "SET_SORT_BY"
+const ADD_CAR = 'ADD_CAR'
 const state = {
     cars: carList,
     search: '',
@@ -16,7 +17,12 @@ const mutations = {
     },
     [SET_SORT_BY](state, sortType){
         state.sortType = sortType
+    },
+
+    [ADD_CAR](state, car){
+        state.cars.push(car)
     }
+
 }
 
 const actions = {
@@ -25,6 +31,10 @@ const actions = {
     },
     sortBy({commit}, sortType){
         commit(SET_SORT_BY,sortType)
+    },
+    addCar({commit, state}, car){
+        car.id = state.cars.length +1
+        commit(ADD_CAR,car)
     }
 }
 

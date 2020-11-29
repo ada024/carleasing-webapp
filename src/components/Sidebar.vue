@@ -1,9 +1,6 @@
 <template>
 <div id="sidebar">
   <Sort/>
-
-
-
 </div>
 </template>
 
@@ -21,7 +18,8 @@ export default  {
 
 <style lang='scss' scoped>
 #sidebar {
-  padding-top: 3rem;
+  padding-top: 5rem;
+  padding-left: 1rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -31,58 +29,6 @@ export default  {
   background-color: #191c1f;
   justify-content: left;
 
-  & > button {
-    margin-top: 20px;
-    height: 30px;
-    background-color: #5eb85e;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-  }
-
-  #car-form {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-
-    & > div {
-      display: flex;
-      flex-direction: column;
-
-      #car-input {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-
-    .add-car {
-      background-color: green;
-      text-align: center;
-      color: white;
-      margin-left: 5px;
-      height: 100%;
-      padding: 2px 10px;
-      font-size: 20px;
-      padding: 1re;
-      align-self: center;
-      cursor: pointer;
-    }
-  }
-
-  #add-car {
-    background-color: #5eb85e;
-    border: none;
-    padding: 5px;
-    width: 70px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    outline: none;
-  }
 }
 </style>
 
