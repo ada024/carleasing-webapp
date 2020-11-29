@@ -2,6 +2,7 @@ import carList from '../../assets/car-list'
 const  SET_SEARCH = "SET_SEARCH"
 const SET_SORT_BY = "SET_SORT_BY"
 const ADD_CAR = 'ADD_CAR'
+const DELETE_CAR = 'DELETE_CAR'
 const state = {
     cars: carList,
     search: '',
@@ -21,6 +22,11 @@ const mutations = {
 
     [ADD_CAR](state, car){
         state.cars.push(car)
+    },
+
+    [DELETE_CAR](state, id){
+        //findIndex(index, Quantity to remove)
+        state.cars.splice(state.cars.findIndex(car => car.id === id),1)
     }
 
 }
@@ -33,8 +39,12 @@ const actions = {
         commit(SET_SORT_BY,sortType)
     },
     addCar({commit, state}, car){
-        car.id = state.cars.length +1
-        commit(ADD_CAR,car)
+        car.id = state.cars.length +1;
+        commit(ADD_CAR,car);
+    },
+
+    deleteCar({commit, state}, id){
+        commit(DELETE_CAR,id);
     }
 }
 

@@ -15,7 +15,7 @@
       <a href="book.html">
         <button>Book Now</button>
       </a>
-      <button class="btn-astext">Delete car</button>
+      <button class="btn-astext" @click="deleteCar(car.id)">Delete car</button>
     </div>
   </li>
 
@@ -31,7 +31,9 @@ export default {
       }
     }
   },methods:{
-
+deleteCar(id){
+  this.$store.dispatch('deleteCar',parseInt(id))
+}
   }
 }
 </script>
