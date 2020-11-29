@@ -1,17 +1,46 @@
 <template>
-<div id="sort">
-  <h3>Sort by: </h3>
-  <p>Price low</p>
-  <p>Price high</p>
-  <p>Persons few</p>
-  <p>Persons many</p>
-</div>
+  <div id="sort">
+    <h3>Sort by: </h3>
+    <p v-for="(sort,index) in sorts" :key="index" @click="sortBy(sort)">
+      {{sort.name}}
+    </p>
+  </div>
 </template>
 
 <script>
 export default {
-name: "Sort"
-}
+  name: "Sort",
+  data() {
+    return {
+      sorts: [
+        {
+          name: 'Price low',
+          key: 'price',
+          order: 'desc'
+        },
+        {
+          name: 'Price high',
+          key: 'price',
+          order: 'asc'
+        },
+        {
+          name: 'Persons few',
+          key: 'persons',
+          order: 'desc'
+        },
+        {
+          name: 'Persons many',
+          key: 'persons',
+          order: 'asc'
+        }
+      ]
+    }
+  },methods:{
+    sortBy(sort){
+      this.$store.dispatch('sortBy',sort)
+    }
+  }
+};
 </script>
 
 <style lang='scss' scoped>
