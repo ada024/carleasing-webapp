@@ -4,7 +4,7 @@
       <h2>Cars2go</h2>
       <div>
         <h2>Add new Car</h2>
-        <input type="text" placeholder="Search for cars">
+        <input v-model="search" type="text" placeholder="Search for cars">
       </div>
     </div>
 
@@ -13,8 +13,17 @@
 
 
 <script>
-
-
+export default {
+  data() {
+    return {
+      search: '',
+    }
+  },watch: {
+    search(){
+      this.$store.dispatch("search", this.search)
+    }
+  }
+};
 </script>
 
 <style lang='scss' scoped>

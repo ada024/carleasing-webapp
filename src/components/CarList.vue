@@ -21,6 +21,7 @@ export default {
       return this.$store.getters.getCars;
     }
   }, created() {
+    //runs once
   }
 }
 </script>
