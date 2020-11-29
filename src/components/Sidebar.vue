@@ -1,18 +1,29 @@
 <template>
-<div id="sidebar">'Sort by'</div>
+<div id="sidebar">
+  <Sort/>
 
 
+
+</div>
 </template>
+
 <script>
+import Sort from './Sort'
+
+export default  {
+  components:{
+    Sort
+  }
+};
 
 </script>
 
 
 <style lang='scss' scoped>
 #sidebar {
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
-  padding: 10px;
   min-height: 100vh;
   min-width: 150px;
   max-width: 150px;

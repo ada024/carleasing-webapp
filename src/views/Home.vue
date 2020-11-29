@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-
-    <Navbar/>
+    <Navbar></Navbar>
     <div id="main-section">
       <Sidebar></Sidebar>
       <CarList></CarList>
@@ -26,12 +25,14 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  display: flex;
-  flex-direction: column;
 
   #main-section {
     display: flex;
-    margin-top: 50px;
+    margin-top: 0px;
+    width: 80%;
+    padding: 10px 0 0 10px;
+    font-family: "Roboto Light";
   }
+
 }
 </style>

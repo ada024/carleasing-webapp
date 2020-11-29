@@ -1,22 +1,38 @@
 <template>
-<div id="car-container">
-  Car list
-</div>
+  <div id="car-container">
+    <ul class="car-list">
+      <Car v-for="ccar in cars" :key="ccar.id" :car="ccar"/>
+    </ul>
+  </div>
 </template>
 
 <script>
+import Car from './Car'
+
 export default {
-name: "CarList"
+  components: {
+    Car,
+  },
+  name: "CarList",
+  data() {
+    return {}
+  }, computed: {
+    cars() {
+      return this.$store.getters.getCars;
+    }
+  }, created() {
+  }
 }
 </script>
 
 <style lang='scss' scoped>
+
+
 #car-container {
-  padding-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 2;
-  color: red;
-  justify-content: center;
+  padding-top: 5rem;
+  .car-list {
+    list-style: none;
+    clear: both;
+  }
 }
 </style>

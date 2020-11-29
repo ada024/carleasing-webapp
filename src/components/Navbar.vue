@@ -9,8 +9,6 @@
     </div>
 
   </div>
-
-
 </template>
 
 
@@ -21,9 +19,9 @@
 
 <style lang='scss' scoped>
 #navbar-wrap {
-  position: fixed;
+  position: absolute;
   width: 100%;
-  z-index: 9999;
+  z-index: 100;
 
   #navbar {
     display: flex;
