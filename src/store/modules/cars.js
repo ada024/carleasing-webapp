@@ -1,4 +1,3 @@
-// import carList from '../../assets/car-list'
 import carsApi from "@/services/carsApi";
 
 const SET_SEARCH = "SET_SEARCH"
