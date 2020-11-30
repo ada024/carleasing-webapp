@@ -1,19 +1,6 @@
 # carleasing-app
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+ <img src="https://github.com/ada024/carleasing-webapp/blob/master/screenshots/" width=768  >
+<br/> 
