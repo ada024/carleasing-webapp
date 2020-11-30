@@ -45,7 +45,7 @@ export default {
     }
   }, methods: {
     deleteCar(id) {
-      this.$store.dispatch('deleteCar', parseInt(id))
+      this.$store.dispatch('deleteCar', id)
     }
   }
 }

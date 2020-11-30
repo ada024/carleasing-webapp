@@ -1,10 +1,13 @@
-import carList from '../../assets/car-list'
-const  SET_SEARCH = "SET_SEARCH"
+// import carList from '../../assets/car-list'
+import carsApi from "@/services/carsApi";
+
+const SET_SEARCH = "SET_SEARCH"
 const SET_SORT_BY = "SET_SORT_BY"
 const ADD_CAR = 'ADD_CAR'
 const DELETE_CAR = 'DELETE_CAR'
+const SET_CARS = 'SET_CARS'
 const state = {
-    cars: carList,
+    cars: [],
     search: '',
     sortType: {
         key: 'price',
@@ -13,44 +16,53 @@ const state = {
 }
 
 const mutations = {
-    [SET_SEARCH](state, search){
+    [SET_SEARCH](state, search) {
         state.search = search
     },
-    [SET_SORT_BY](state, sortType){
+    [SET_SORT_BY](state, sortType) {
         state.sortType = sortType
     },
 
-    [ADD_CAR](state, car){
+    [ADD_CAR](state, car) {
         state.cars.push(car)
     },
 
-    [DELETE_CAR](state, id){
+    [DELETE_CAR](state, id) {
         //findIndex(index, Quantity to remove)
-        state.cars.splice(state.cars.findIndex(car => car.id === id),1)
+        state.cars.splice(state.cars.findIndex(car => car.id === id), 1)
+    },
+    [SET_CARS](state, cars) {
+        state.cars = cars;
     }
 
 }
 
 const actions = {
-    search({commit}, search){
-        commit(SET_SEARCH,search)
+    search({commit}, search) {
+        commit(SET_SEARCH, search)
     },
-    sortBy({commit}, sortType){
-        commit(SET_SORT_BY,sortType)
+    sortBy({commit}, sortType) {
+        commit(SET_SORT_BY, sortType)
     },
-    addCar({commit, state}, car){
-        car.id = state.cars.length +1;
-        commit(ADD_CAR,car);
+    addCar({commit, state}, car) {
+        carsApi.addCar(car)
+            .then(res => commit(ADD_CAR, res)
+            ).catch(err => console.log(err))
     },
-
-    deleteCar({commit, state}, id){
-        commit(DELETE_CAR,id);
+    deleteCar({commit}, id) {
+        carsApi.deleteCar(id).then(res => commit(DELETE_CAR, res))
+            .catch(err => console.log(err))
+    },
+    fetchCars({commit}) {
+        carsApi.getCars()
+            .then(res => commit(SET_CARS, res))
+            .catch(err => console.log(err))
     }
 }
 
 const getters = {
     getCars: state => {
-        return state.cars.filter(car =>car.title.toLowerCase().indexOf(state.search.toLowerCase()) > -1 || car.description.toLowerCase().indexOf(state.search.toLowerCase()) > -1)
+        return state.cars.filter(car => car.title.toLowerCase().indexOf(state.search.toLowerCase()) > -1 || car.description.toLowerCase().indexOf(state.search.toLowerCase()) > -1)
             .sort(compare(state.sortType))
     }
 }
@@ -59,14 +71,14 @@ const compare = ({key, order}) => {
     return (a, b) => {
         let result = 0; // equal
 
-        if(a[key] > b[key]){
+        if (a[key] > b[key]) {
             result = -1
         }
-        if(a[key] < b[key]){
-            result  = 1
+        if (a[key] < b[key]) {
+            result = 1
         }
 
-        if(order == 'asc') return  result
+        if (order === 'asc') return result
 
         return result * -1
     }
