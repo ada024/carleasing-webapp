@@ -14,7 +14,7 @@ export  default
         id: 2,
         title: "2020 Ford Mustang GT Fastback",
         price: 8400,
-        img: "https://canary.contestimg.wish.com/api/webimage/59aad2e106461074d9d6c88a-large.jpg?cache_buster=c88e9fe2986602d94e49ae8d08689fc7",
+        img: "https://file.kelleybluebookimages.com/kbb/base/evox/CP/13997/2020-Ford-Mustang-front_13997_032_2400x1800_YZ.png",
         persons: 2,
         doors: 3,
         liters_per: 4,

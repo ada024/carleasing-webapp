@@ -29,7 +29,7 @@ export default {
   #main-section {
     display: flex;
     margin-top: 0px;
-    width: 80%;
+    width: 93%;
     padding: 10px 0 0 10px;
     font-family: "Roboto Light";
   }

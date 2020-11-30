@@ -5,6 +5,7 @@
       <div>
         <h2 @click="showModal =true">Add new Car</h2>
         <input v-model="search" type="text" placeholder="Search... (name/description)">
+
       </div>
 
       <modal v-if="showModal" @cancel="showModal = !showModal">
@@ -143,6 +144,9 @@ export default {
       cursor: pointer;
     }
 
+    input {
+      align-content: center;
+    }
 
     & > button {
       margin-top: 20px;
