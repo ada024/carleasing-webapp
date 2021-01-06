@@ -2,7 +2,7 @@
 
 ## About
 
-This app use ~~firebase~~, connsume API from [Carleasing-backend](https://github.com/ada024/carleasing-backend).
+This app use ~~Firebase~~, connsume API from [Carleasing-backend](https://github.com/ada024/carleasing-backend).
 -  ~~With this app you can read, create and delete car-leasing~~
 - Search in description or name.
 - Sort by low/high price, few/many persons
